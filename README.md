@@ -4,6 +4,6 @@ the scanned RFID to members names on the list, the program will also keep track 
 
 use the following format for text files: name id_number times_attended.
 
-Note: After finish running the program, duplicate final.txt to keep track of history and rename it to bnb_members.txt for future execution. 
+Note: After the execution completes, duplicate final.txt to keep track of history and rename it to bnb_members.txt for future execution. 
 
 
