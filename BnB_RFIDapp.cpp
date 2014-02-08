@@ -14,11 +14,13 @@ using namespace std;
 
 int main()
 {
-  map<string,bnb_member> myMap;
-  fstream bnb_members;//final file
+  map<string,bnb_member> myMap;//a map to update counts.key:id, value:BnB_RFID object
+  fstream bnb_members;//file to be read 
   bnb_members.open ("/Workspace/TEMP/TEMP/bnb_members.txt", ios::in);
   string line_of_txt;
-
+  
+  
+  //loop to fill in myMap
   while (getline(bnb_members,line_of_txt))
     {
       istringstream iss(line_of_txt);
@@ -35,13 +37,15 @@ int main()
 
   bnb_members.close();
 
-  fstream temp_bnb_members;//temporary file
+  fstream temp_bnb_members;//temporary file to record current attendance
   string temp_id;
   temp_bnb_members.open ("/Workspace/TEMP/TEMP/temp_bnb_members.txt", ios::in);
 
+
+  //if id is present, increase count
    while (getline(temp_bnb_members,temp_id))
    {
-    myMap[temp_id].increase_count();
+      myMap[temp_id].increase_count();
    }
 
     fstream final;//final file
