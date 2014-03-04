@@ -14,12 +14,22 @@ using namespace std;
 
 int main()
 {
+  cout<<".";
+  cout.flush();
+  cout<<"processing the files...\n";
   map<string,bnb_member> myMap;//a map to update counts.key:id, value:BnB_RFID object
-  fstream bnb_members;//file to be read 
-  bnb_members.open ("/Workspace/TEMP/TEMP/bnb_members.txt", ios::in);
+  fstream bnb_members;//file to be read
+  bnb_members.open ("bnb_members.txt", ios::in);
+  if (!(bnb_members.is_open()))
+  {
+    cout<<"bnb_members.txt does not exsist!\n";
+  }
+  else
+  {
+    cout<<"bnb_members.txt exsist!\n";
+  }
   string line_of_txt;
-  
-  
+
   //loop to fill in myMap
   while (getline(bnb_members,line_of_txt))
     {
@@ -39,7 +49,15 @@ int main()
 
   fstream temp_bnb_members;//temporary file to record current attendance
   string temp_id;
-  temp_bnb_members.open ("/Workspace/TEMP/TEMP/temp_bnb_members.txt", ios::in);
+  temp_bnb_members.open ("temp_bnb_members.txt", ios::in);
+  if (!(temp_bnb_members.is_open()))
+  {
+    cout<<"temp_bnb_members.txt does not exsist!\n";
+  }
+  else
+  {
+    cout<<"temp_bnb_members.txt exsist!\n";
+  }
 
 
   //if id is present, increase count
@@ -48,9 +66,16 @@ int main()
       myMap[temp_id].increase_count();
    }
 
-    fstream final;//final file
-    final.open ("/Workspace/TEMP/TEMP/final.txt", ios::out);
-
+  fstream final;//final file
+  final.open ("final.txt", ios::out);
+  if (!(final.is_open()))
+  {
+    cout<<"final.txt does not exsist!\n";
+  }
+  else
+  {
+    cout<<"final.txt exsist!\n";
+  }
     typedef map<string, bnb_member>::iterator it_type;
     for(it_type iterator = myMap.begin(); iterator != myMap.end(); iterator++)
     {
