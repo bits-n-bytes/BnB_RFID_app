@@ -14,8 +14,6 @@ using namespace std;
 
 int main()
 {
-  cout<<".";
-  cout.flush();
   cout<<"processing the files...\n";
   map<string,bnb_member> myMap;//a map to update counts.key:id, value:BnB_RFID object
   fstream bnb_members;//file to be read
